@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+  - base
+  - dial_a_song

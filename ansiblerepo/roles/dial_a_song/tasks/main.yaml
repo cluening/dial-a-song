@@ -1,0 +1,24 @@
+---
+- name: "Create /var/lib/dial-a-son/sounds directory"
+  ansible.builtin.file:
+    path: /var/lib/dial-a-song/sounds
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "Install the dial-a-song container service unit file"
+  ansible.builtin.copy:
+    src: "container-dial-a-song.service"
+    dest: "/etc/systemd/system/container-dial-a-song.service"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "Enable and start the dial-a-song container service"
+  ansible.builtin.systemd_service:
+    name: "container-dial-a-song.service"
+    enabled: yes
+    state: started
+  ignore_errors: "{{ ansible_check_mode }}"
+

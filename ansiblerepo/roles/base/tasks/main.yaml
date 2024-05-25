@@ -1,0 +1,14 @@
+---
+
+- name: "Install base packages"
+  ansible.builtin.package:
+    name:
+      - podman
+      - vim
+    state: present
+
+- name: "Set up local networking"
+  community.general.nmcli:
+    conn_name: "Wired connection 1"
+    ip4: "10.0.0.1/24"
+    state: present
