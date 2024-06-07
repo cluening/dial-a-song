@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name:
       - podman
+      - tmux
       - vim
     state: present
 

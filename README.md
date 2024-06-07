@@ -7,16 +7,22 @@ This is a simple containerized Asterisk config that makes it easy to implement a
 
 Set up a pi however you want.  This repo assumes you're using a debian-style distro on it.
 
+Install prereqs:
+```
+sudo apt install ansible git podman
+```
+
 Clone this repo onto a pi.
 
 Build a copy of the container for root:
 ```
+cd dial-a-song/
 sudo podman build -t dial-a-song .
 ```
 
 Run ansible:
 ```
-cd ansiblerepo
+cd dial-a-song/ansiblerepo
 sudo ansible-playbook -i inventory/all.yaml -l localhost site.yaml --diff
 ```
 
