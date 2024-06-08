@@ -1,10 +1,10 @@
 ---
-- name: "Create /var/lib/dial-a-son/sounds directory"
+- name: "Create /home/pi/sounds directory"
   ansible.builtin.file:
-    path: /var/lib/dial-a-song/sounds
+    path: /home/pi/sounds
     state: directory
-    owner: root
-    group: root
+    owner: pi
+    group: pi
     mode: 0755
 
 - name: "Install the dial-a-song container service unit file"

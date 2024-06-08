@@ -41,7 +41,7 @@ Enjoy!
 
 For any number that's dialed, the Asterisk config runs an AGI script that looks for mp3 files that match the number and plays it.  If more than one file matches a given number, one of the matching files will chosen randomly.
 
-The mp3 files live in `/var/lib/dial-a-song/sounds` on the base OS, and their name should have the format:
+The mp3 files live in `/home/pi/sounds` on the base OS, and their name should have the format:
 ```
 NNN-any_string.mp3
 ```
@@ -84,7 +84,7 @@ podman run --rm --name dial-a-song -v ./conf/modules.conf:/etc/asterisk/modules.
 
 Startup on the pi:
 ```
-podman run --name dial-a-song --network host --rm -v /var/lib/dial-a-song/sounds:/usr/share/asterisk/sounds/custom/external:Z dial-a-song
+podman run --name dial-a-song --network host --rm -v /home/pi/sounds:/usr/share/asterisk/sounds/custom/external:Z dial-a-song
 ```
 
 Create a unit file:

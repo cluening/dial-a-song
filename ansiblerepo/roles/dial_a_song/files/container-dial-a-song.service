@@ -23,7 +23,7 @@ ExecStart=/usr/bin/podman run \
 	-d \
 	--replace \
 	--network host \
-	-v /var/lib/dial-a-song/sounds:/usr/share/asterisk/sounds/custom/external:Z \
+	-v /home/pi/sounds:/usr/share/asterisk/sounds/custom/external:Z \
 	--name dial-a-song dial-a-song
 ExecStop=/usr/bin/podman stop \
 	--ignore -t 10 \
